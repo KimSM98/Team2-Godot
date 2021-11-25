@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hourglass-start-solid.png-1194aa2f1e8b9eb40ec35c83d4ead3eb.stex"
+path="res://.import/heart-regular.png-721b56148556dc370df84217a004d1ff.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Objects/hourglass-start-solid.png"
-dest_files=[ "res://.import/hourglass-start-solid.png-1194aa2f1e8b9eb40ec35c83d4ead3eb.stex" ]
+source_file="res://Assets/UI/heart-regular.png"
+dest_files=[ "res://.import/heart-regular.png-721b56148556dc370df84217a004d1ff.stex" ]
 
 [params]
 
