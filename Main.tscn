@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Background/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Animation Frames/Friends/Friend_Bold.tres" type="SpriteFrames" id=7]
 [ext_resource path="res://Animation Frames/Friends/Friend_Headband.tres" type="SpriteFrames" id=8]
 [ext_resource path="res://Scripts/UI/TimeDisplayer.gd" type="Script" id=9]
+[ext_resource path="res://Assets/UI/heart-solid.png" type="Texture" id=10]
 
 [node name="Main" type="Node2D"]
 
@@ -69,5 +70,32 @@ __meta__ = {
 [node name="ms" type="Timer" parent="TimeDisplayer"]
 wait_time = 0.1
 autostart = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 50.0
+margin_right = 358.0
+margin_bottom = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_right = 308.0
+margin_bottom = 100.0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+margin_right = 10.0
+margin_bottom = 100.0
+texture = ExtResource( 10 )
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+margin_left = 14.0
+margin_right = 14.0
+margin_bottom = 100.0
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+margin_left = 18.0
+margin_right = 18.0
+margin_bottom = 100.0
 
 [connection signal="timeout" from="TimeDisplayer/ms" to="TimeDisplayer" method="_on_ms_timeout"]
