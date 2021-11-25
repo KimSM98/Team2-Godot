@@ -17,30 +17,27 @@ func _process(delta):
 	move_and_slide(velocity)
 
 func GetInput():
+	# Move 
 	var axisX = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	var axisY = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	
 	velocity = Vector2(axisX, axisY)
+	velocity = velocity.normalized() * speed
 	
-	if Input.is_action_pressed("ui_right"):
-		#velocity.x += 1
+	# Movement Animation
+	if axisX == 1:
 		currentAnimation = "MoveRight"		
-	elif Input.is_action_pressed("ui_left"):
-		#velocity.x -= 1
+	elif axisX == -1:
 		currentAnimation = "MoveLeft"
-	elif Input.is_action_pressed("ui_up"):
-		#velocity.y -= 1
+	elif axisY == -1:
 		currentAnimation = "MoveUp"
-	elif Input.is_action_pressed("ui_down"):
-		#velocity.y += 1
+	elif axisY == 1:
 		currentAnimation = "MoveDown"
 	else:
 		currentAnimation = "default"
 	# To ignore replaying same animation
 	if currentAnimation != animatedSprite.animation:	
 		SetAnimation()
-	
-	velocity = velocity.normalized() * speed
 
 func SetAnimation():
 	animatedSprite.animation = currentAnimation
