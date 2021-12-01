@@ -35,6 +35,9 @@ func move(var delta):
 	# Move
 	characterNode.position = originPos.linear_interpolate(destPos, t)		
 		
-				
+func init():
+	t = 0.0
+	speed = rand_range(1, 5)
+	isMoveToDestination = true
 
 
