@@ -1,5 +1,6 @@
 extends "res://Scripts/Enemy/Enemy.gd"
 
+class_name Cat
 onready var animatedSprite = $AnimatedSprite
 onready var PlayerNode = get_node("/root/Main/Player")
 
@@ -26,7 +27,7 @@ func _process(delta):
 		currentAnimation = "Idle"
 		
 	if currentAnimation != animatedSprite.animation:	
-		SetAnimation()
+		setAnimation()
 	
 
 func move():
@@ -40,6 +41,17 @@ func move():
 	else:
 		animatedSprite.flip_h = true
 	
-func SetAnimation():
+func setAnimation():
 	animatedSprite.animation = currentAnimation
 	animatedSprite.play()
+
+func delete():
+	queue_free()
+
+func detectCollision():
+	var collision = move_and_collide(Vector2())
+	if !collision:
+		return
+	else:
+		if collision.collider is Player:
+			collision.collider.getCatObject(self)

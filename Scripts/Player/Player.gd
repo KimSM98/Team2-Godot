@@ -8,6 +8,9 @@ export (float) var speed = 200
 var velocity = Vector2()
 var currentAnimation;
 
+var catObj = null
+var deleteCat = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	currentAnimation = "default"
@@ -37,9 +40,17 @@ func GetInput():
 		currentAnimation = "default"
 	# To ignore replaying same animation
 	if currentAnimation != animatedSprite.animation:	
-		SetAnimation()
+		setAnimation()
 
-func SetAnimation():
+func setAnimation():
 	animatedSprite.animation = currentAnimation
 	animatedSprite.play()
-	
+
+# Cat Item
+func getCatObject(var obj):	
+	if(deleteCat == true):
+		obj.delete()
+		deleteCat = false
+
+func deleteCatObject():
+	deleteCat = true

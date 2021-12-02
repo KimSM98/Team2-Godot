@@ -8,6 +8,7 @@ extents = Vector2( 6, 7.5 )
 
 [node name="Friend" type="KinematicBody2D"]
 scale = Vector2( 2, 2 )
+collision_layer = 2
 script = ExtResource( 2 )
 spriteFrames = ExtResource( 1 )
 

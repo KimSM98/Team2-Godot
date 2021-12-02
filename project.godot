@@ -10,11 +10,23 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "KinematicBody2D",
+"class": "Cat",
+"language": "GDScript",
+"path": "res://Scripts/Enemy/Cat.gd"
+}, {
+"base": "Area2D",
+"class": "Item",
+"language": "GDScript",
+"path": "res://Scripts/Item/Item.gd"
+}, {
+"base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Scripts/Player/Player.gd"
 } ]
 _global_script_class_icons={
+"Cat": "",
+"Item": "",
 "Player": ""
 }
 
@@ -28,6 +40,12 @@ config/icon="res://icon.png"
 
 window/size/width=1280
 window/size/height=720
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Enemy"
+2d_physics/layer_3="Item"
 
 [physics]
 

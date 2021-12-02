@@ -9,6 +9,7 @@ extents = Vector2( 9, 9 )
 
 [node name="Car" type="KinematicBody2D"]
 scale = Vector2( 2, 2 )
+collision_layer = 2
 script = ExtResource( 2 )
 spriteFrames = ExtResource( 3 )
 
