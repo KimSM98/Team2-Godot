@@ -5,19 +5,31 @@ class_name Player
 onready var animatedSprite = $AnimatedSprite
 
 export (float) var speed = 200
+var initSpeed = 0
 var velocity = Vector2()
 var currentAnimation;
 
+# Cat item
 var catObj = null
 var deleteCat = false
+# Speed up item 
+var remainSpeedUpTime = 2.0
+var isUsingSpeedUp = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	initSpeed = speed
 	currentAnimation = "default"
 
 func _process(delta):
 	GetInput()
 	move_and_slide(velocity)
+	
+	if isUsingSpeedUp == true:
+		remainSpeedUpTime -= delta
+		if(remainSpeedUpTime <= 0):
+			isUsingSpeedUp = false
+			speed = initSpeed	
 
 func GetInput():
 	# Move 
@@ -46,7 +58,7 @@ func setAnimation():
 	animatedSprite.animation = currentAnimation
 	animatedSprite.play()
 
-# Cat Item
+# Cat item
 func getCatObject(var obj):	
 	if(deleteCat == true):
 		obj.delete()
@@ -54,3 +66,9 @@ func getCatObject(var obj):
 
 func deleteCatObject():
 	deleteCat = true
+
+# Speed up item
+func speedUp():
+	isUsingSpeedUp = true
+	remainSpeedUpTime = 2.0
+	speed = initSpeed * 2
