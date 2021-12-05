@@ -3,6 +3,7 @@ extends Node2D
 export(NodePath) var destinationPath
 export(float) var speed = 5
 
+onready var PlayerNode = get_node("/root/Main/Player")
 onready var characterNode = get_parent()
 var destinationNode
 
@@ -37,7 +38,7 @@ func move(var delta):
 		
 func init():
 	t = 0.0
-	speed = rand_range(1, 5)
 	isMoveToDestination = true
 
-
+func setSpeed(var speedVal):
+	speed = speedVal

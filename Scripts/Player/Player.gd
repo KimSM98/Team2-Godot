@@ -3,6 +3,7 @@ extends KinematicBody2D
 class_name Player
 
 onready var animatedSprite = $AnimatedSprite
+onready var gameManagerNode =  get_node("..")
 
 export (float) var speed = 200
 var initSpeed = 0
@@ -72,3 +73,10 @@ func speedUp():
 	isUsingSpeedUp = true
 	remainSpeedUpTime = 2.0
 	speed = initSpeed * 2
+
+func speedDown():
+	if isUsingSpeedUp == false:
+		speed = initSpeed / 2
+
+func getCollectibleItem():
+	gameManagerNode.addAssignmentCount()

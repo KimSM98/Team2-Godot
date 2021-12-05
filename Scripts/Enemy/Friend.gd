@@ -33,3 +33,10 @@ func _process(delta):
 func SetAnimation():		
 	animatedSprite.animation = currentAnimation
 	animatedSprite.play()
+
+func detectCollision():
+	var collision = move_and_collide(Vector2())
+	if !collision:
+		return
+	else:
+		collision.collider.speedDown()

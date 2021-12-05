@@ -40,6 +40,7 @@ func _process(delta):
 	if patrollerNode != null:
 		if patrollerNode.isMoveToDestination == false:
 			patrollerNode.init()
+			patrollerNode.setSpeed(rand_range(1, 5))
 			visible = true			
 
 func SetAnimation():		
