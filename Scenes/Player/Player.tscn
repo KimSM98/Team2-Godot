@@ -7,6 +7,26 @@
 atlas = ExtResource( 1 )
 region = Rect2( 384, 0, 16, 16 )
 
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 1 )
+region = Rect2( 384, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 1 )
+region = Rect2( 384, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 416, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 1 )
+region = Rect2( 416, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 416, 16, 16, 16 )
+
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
 region = Rect2( 368, 32, 16, 16 )
@@ -23,18 +43,6 @@ region = Rect2( 368, 16, 16, 16 )
 atlas = ExtResource( 1 )
 region = Rect2( 368, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 1 )
-region = Rect2( 416, 32, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 1 )
-region = Rect2( 416, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 1 )
-region = Rect2( 416, 16, 16, 16 )
-
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 1 )
 region = Rect2( 400, 16, 16, 16 )
@@ -43,14 +51,6 @@ region = Rect2( 400, 16, 16, 16 )
 atlas = ExtResource( 1 )
 region = Rect2( 400, 32, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 1 )
-region = Rect2( 384, 16, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 1 )
-region = Rect2( 384, 32, 16, 16 )
-
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ SubResource( 7 ) ],
@@ -58,9 +58,9 @@ animations = [ {
 "name": "default",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 5 ), SubResource( 12 ), SubResource( 4 ), SubResource( 13 ) ],
+"frames": [ SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,
-"name": "MoveLeft",
+"name": "MoveDown",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 2 ), SubResource( 14 ), SubResource( 1 ), SubResource( 14 ) ],
@@ -68,14 +68,14 @@ animations = [ {
 "name": "MoveRight",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 5 ), SubResource( 12 ), SubResource( 4 ), SubResource( 13 ) ],
+"loop": true,
+"name": "MoveLeft",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 8 ), SubResource( 9 ) ],
 "loop": true,
 "name": "MoveUp",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 10 ), SubResource( 11 ) ],
-"loop": true,
-"name": "MoveDown",
 "speed": 5.0
 } ]
 
@@ -93,3 +93,7 @@ frames = SubResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 0.5 )
 shape = SubResource( 6 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -4,6 +4,7 @@ class_name Player
 
 onready var animatedSprite = $AnimatedSprite
 onready var gameManagerNode =  get_node("..")
+onready var timerNode = get_node("Timer")
 
 export (float) var speed = 200
 var initSpeed = 0
@@ -14,8 +15,8 @@ var currentAnimation;
 var catObj = null
 var deleteCat = false
 # Speed up item 
-var remainSpeedUpTime = 2.0
-var isUsingSpeedUp = false
+enum SPEED{NORMAL, UP, DOWN}
+var currentSpeedState = SPEED.NORMAL
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,12 +26,6 @@ func _ready():
 func _process(delta):
 	GetInput()
 	move_and_slide(velocity)
-	
-	if isUsingSpeedUp == true:
-		remainSpeedUpTime -= delta
-		if(remainSpeedUpTime <= 0):
-			isUsingSpeedUp = false
-			speed = initSpeed	
 
 func GetInput():
 	# Move 
@@ -70,13 +65,30 @@ func deleteCatObject():
 
 # Speed up item
 func speedUp():
-	isUsingSpeedUp = true
-	remainSpeedUpTime = 2.0
 	speed = initSpeed * 2
+	
+	currentSpeedState = SPEED.UP
+	timerNode.set_wait_time(2)
+	timerNode.start()
 
 func speedDown():
-	if isUsingSpeedUp == false:
+	# if player is using speedUp item, speedDown is not work
+	if currentSpeedState != SPEED.UP:
 		speed = initSpeed / 2
+		timerNode.set_wait_time(2)
+		timerNode.start()
+	
+func _on_Timer_timeout():
+	speed = initSpeed
+	
+	currentSpeedState = SPEED.NORMAL
+	timerNode.stop()
 
 func getCollectibleItem():
 	gameManagerNode.addAssignmentCount()
+
+# Goal
+func gameOver():
+	gameManagerNode.gameOver()
+
+
