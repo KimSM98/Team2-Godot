@@ -15,11 +15,14 @@ func _ready():
 func _process(delta):
 	detectCollision()
 
+func attack(var player):
+	pass
+
 func detectCollision():
 	var collision = move_and_collide(Vector2())
 	if !collision:
 		return
 	else:
 		if collision.collider is Player:
-			print("Ouch...")
+			attack(collision.collider)
 			#collision.collider._reduce_health(damage)

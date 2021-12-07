@@ -27,8 +27,7 @@ func _process(delta):
 		currentAnimation = "Idle"
 		
 	if currentAnimation != animatedSprite.animation:	
-		setAnimation()
-	
+		setAnimation()	
 
 func move():
 	target = PlayerNode.position
@@ -48,10 +47,5 @@ func setAnimation():
 func delete():
 	queue_free()
 
-func detectCollision():
-	var collision = move_and_collide(Vector2())
-	if !collision:
-		return
-	else:
-		if collision.collider is Player:
-			collision.collider.getCatObject(self)
+func attack(var player):
+	player.getCatObject(self)

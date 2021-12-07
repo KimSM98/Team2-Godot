@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scenes/Background/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Scenes/Goal/Goal.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Fonts/Score.tres" type="DynamicFont" id=20]
 [ext_resource path="res://Assets/Item/paper.png" type="Texture" id=21]
+[ext_resource path="res://Fonts/GameOverFont.tres" type="DynamicFont" id=22]
 
 [sub_resource type="Theme" id=1]
 
@@ -47,6 +48,7 @@ corner_radius_bottom_left = 3
 script = ExtResource( 16 )
 collectibleCountLabelPath = NodePath("CountUI/CollectibleCount")
 maxCollectibleCountLabelPath = NodePath("CountUI/MaxCollectibleCount")
+gameOverUIPath = NodePath("GameOverUI")
 scoreLabelPath = NodePath("GameOverUI/Score")
 
 [node name="Background" parent="." instance=ExtResource( 1 )]
@@ -190,28 +192,11 @@ position = Vector2( 933, 218 )
 [node name="Paper3" parent="Collectibles" instance=ExtResource( 17 )]
 position = Vector2( 989, 81 )
 
-[node name="GameOverUI" type="Control" parent="."]
-margin_left = 583.0
-margin_top = 283.0
-margin_right = 772.0
-margin_bottom = 373.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Goal" parent="." instance=ExtResource( 19 )]
+position = Vector2( 178, 108 )
 
-[node name="Score" type="Label" parent="GameOverUI"]
-margin_left = -9.0
-margin_top = -31.0
-margin_right = 204.0
-margin_bottom = 122.0
-custom_fonts/font = ExtResource( 20 )
-text = "SCORE
-A"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 626, 276 )
 
 [node name="CountUI" type="Control" parent="."]
 margin_left = 1043.0
@@ -246,7 +231,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="CountUI"]
+[node name="PaperTextureRect" type="TextureRect" parent="CountUI"]
 margin_left = 101.0
 margin_top = 5.0
 margin_right = 137.0
@@ -257,10 +242,50 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Goal" parent="." instance=ExtResource( 19 )]
-position = Vector2( 178, 108 )
+[node name="GameOverUI" type="Control" parent="."]
+margin_left = 583.0
+margin_top = 283.0
+margin_right = 772.0
+margin_bottom = 373.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 626, 276 )
+[node name="ColorRect" type="ColorRect" parent="GameOverUI"]
+margin_left = -584.0
+margin_top = -292.0
+margin_right = 702.0
+margin_bottom = 441.0
+color = Color( 0, 0, 0, 0.439216 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOver" type="Label" parent="GameOverUI"]
+margin_left = -82.0
+margin_top = -63.0
+margin_right = 278.0
+margin_bottom = 17.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 22 )
+text = "GameOver!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="GameOverUI"]
+margin_left = -11.0
+margin_top = 15.0
+margin_right = 202.0
+margin_bottom = 168.0
+custom_fonts/font = ExtResource( 20 )
+text = "SCORE
+A"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="timeout" from="TimeDisplayer/ms" to="TimeDisplayer" method="_on_ms_timeout"]

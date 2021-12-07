@@ -6,6 +6,8 @@ export(NodePath) var collectibleCountLabelPath
 onready var collectibleCountLabel = get_node(collectibleCountLabelPath)
 export(NodePath) var maxCollectibleCountLabelPath
 onready var maxCollectibleCountLabel = get_node(maxCollectibleCountLabelPath)
+export(NodePath) var gameOverUIPath
+onready var gameOverUI = get_node(gameOverUIPath)
 export(NodePath) var scoreLabelPath
 onready var scoreLabel = get_node(scoreLabelPath)
 
@@ -20,7 +22,7 @@ var collectibleCount = 0
 var time
 
 func _ready():
-	scoreLabel.visible = false
+	gameOverUI.visible = false
 	updateMaxCount()
 	updateCollectibleCount()
 
@@ -41,7 +43,6 @@ func addAssignmentCount():
 
 func getScore():
 	var val = collectibleCount * 100 / collectibleMaxCount
-	print(val)
 	if val > 80:
 		score = "A"
 	elif val > 60:
@@ -55,9 +56,9 @@ func getScore():
 	print(score)
 	
 	updateScoreLabel()
-	scoreLabel.visible = true;
+#	scoreLabel.visible = true;
 	
 func gameOver():
 	getScore()
-	
+	gameOverUI.visible = true
 	get_tree().paused = true

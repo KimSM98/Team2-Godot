@@ -10,8 +10,6 @@ onready var patrollerNode = get_node("Patroller")
 
 var currentAnimation
 var lastPosition
-#var viewport = get_tree().root
-#var viewportSize = viewport.get_rect().size
 
 func _ready():
 	get_node("AnimatedSprite").frames = spriteFrames
@@ -46,3 +44,6 @@ func _process(delta):
 func SetAnimation():		
 	animatedSprite.animation = currentAnimation
 	animatedSprite.play()
+	
+func attack(player):
+	player.gameOver()
