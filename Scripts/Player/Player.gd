@@ -18,6 +18,12 @@ var deleteCat = false
 enum SPEED{NORMAL, UP, DOWN}
 var currentSpeedState = SPEED.NORMAL
 
+# HealthBar
+var health = 99
+var ms = 0
+var tmp_ms = 0
+var s = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	initSpeed = speed
@@ -26,6 +32,13 @@ func _ready():
 func _process(delta):
 	GetInput()
 	move_and_slide(velocity)
+	
+	$HealthBar.value = health
+	
+	if ms > 9 :
+		s += 1
+		ms = 0
+		health -= 0.3
 
 func GetInput():
 	# Move 
@@ -91,4 +104,16 @@ func getCollectibleItem():
 func gameOver():
 	gameManagerNode.gameOver()
 
+# Healthbar hit by a car
+func _reduce_health():
+	if ms  == 5 || ms  == 0:
+		health -= 2
+		
+	if health <= 0:
+		gameManagerNode.gameOver()
+
+# Healthbar as time goes
+func _on_ms_timeout():
+	print(health)
+	ms += 1
 
