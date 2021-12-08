@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scenes/Background/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Assets/Item/Paper2.png" type="Texture" id=21]
 [ext_resource path="res://Fonts/GameOverFont.tres" type="DynamicFont" id=22]
 [ext_resource path="res://Scenes/Buildings/School.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Assets/Item/CatFood.png" type="Texture" id=24]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 1, 0.407843, 0.407843, 1 )
@@ -47,18 +48,19 @@ corner_detail = 10
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 16 )
-collectibleCountLabelPath = NodePath("CountUI/CollectibleCount")
-maxCollectibleCountLabelPath = NodePath("CountUI/MaxCollectibleCount")
+collectibleCountLabelPath = NodePath("InGameUI/CollectibleCount")
+maxCollectibleCountLabelPath = NodePath("InGameUI/MaxCollectibleCount")
 gameOverUIPath = NodePath("GameOverUI")
 scoreLabelPath = NodePath("GameOverUI/Score")
 restartButtonPath = NodePath("GameOverUI/RestartButton")
+catItemUIPath = NodePath("InGameUI/CatItemUI")
 
 [node name="Background" parent="." instance=ExtResource( 1 )]
 
 [node name="Cars" type="Node2D" parent="."]
 
 [node name="Car" parent="Cars" instance=ExtResource( 11 )]
-position = Vector2( 660, -32 )
+position = Vector2( 631, -33 )
 
 [node name="Patroller" parent="Cars/Car" instance=ExtResource( 4 )]
 destinationPath = NodePath("../Patroller_Destination")
@@ -68,13 +70,75 @@ speed = 3.0
 position = Vector2( 0, 385 )
 
 [node name="Car4" parent="Cars" instance=ExtResource( 11 )]
-position = Vector2( 700, 730 )
+position = Vector2( 669, 727 )
+spriteFrames = ExtResource( 12 )
 
 [node name="Patroller" parent="Cars/Car4" instance=ExtResource( 4 )]
 destinationPath = NodePath("../Patroller_Destination")
-speed = 3.0
 
 [node name="Patroller_Destination" parent="Cars/Car4" instance=ExtResource( 5 )]
+position = Vector2( 0, -375.5 )
+
+[node name="Car5" parent="Cars" instance=ExtResource( 11 )]
+position = Vector2( 851, -32 )
+spriteFrames = ExtResource( 13 )
+
+[node name="Patroller" parent="Cars/Car5" instance=ExtResource( 4 )]
+destinationPath = NodePath("../Patroller_Destination")
+speed = 4.0
+
+[node name="Patroller_Destination" parent="Cars/Car5" instance=ExtResource( 5 )]
+position = Vector2( 0, 385 )
+
+[node name="Car6" parent="Cars" instance=ExtResource( 11 )]
+position = Vector2( 889, 728 )
+
+[node name="Patroller" parent="Cars/Car6" instance=ExtResource( 4 )]
+destinationPath = NodePath("../Patroller_Destination")
+speed = 3.0
+
+[node name="Patroller_Destination" parent="Cars/Car6" instance=ExtResource( 5 )]
+position = Vector2( 0, -375.5 )
+
+[node name="Car7" parent="Cars" instance=ExtResource( 11 )]
+position = Vector2( 232, -32 )
+spriteFrames = ExtResource( 13 )
+
+[node name="Patroller" parent="Cars/Car7" instance=ExtResource( 4 )]
+destinationPath = NodePath("../Patroller_Destination")
+speed = 3.0
+
+[node name="Patroller_Destination" parent="Cars/Car7" instance=ExtResource( 5 )]
+position = Vector2( 0, 385 )
+
+[node name="Car9" parent="Cars" instance=ExtResource( 11 )]
+position = Vector2( 272, -32 )
+
+[node name="Patroller" parent="Cars/Car9" instance=ExtResource( 4 )]
+destinationPath = NodePath("../Patroller_Destination")
+speed = 6.0
+
+[node name="Patroller_Destination" parent="Cars/Car9" instance=ExtResource( 5 )]
+position = Vector2( 0, 385 )
+
+[node name="Car8" parent="Cars" instance=ExtResource( 11 )]
+position = Vector2( 319, 728 )
+spriteFrames = ExtResource( 12 )
+
+[node name="Patroller" parent="Cars/Car8" instance=ExtResource( 4 )]
+destinationPath = NodePath("../Patroller_Destination")
+
+[node name="Patroller_Destination" parent="Cars/Car8" instance=ExtResource( 5 )]
+position = Vector2( 0, -375.5 )
+
+[node name="Car10" parent="Cars" instance=ExtResource( 11 )]
+position = Vector2( 364, 727 )
+
+[node name="Patroller" parent="Cars/Car10" instance=ExtResource( 4 )]
+destinationPath = NodePath("../Patroller_Destination")
+speed = 7.0
+
+[node name="Patroller_Destination" parent="Cars/Car10" instance=ExtResource( 5 )]
 position = Vector2( 0, -375.5 )
 
 [node name="Car2" parent="Cars" instance=ExtResource( 11 )]
@@ -95,7 +159,7 @@ spriteFrames = ExtResource( 13 )
 
 [node name="Patroller" parent="Cars/Car3" instance=ExtResource( 4 )]
 destinationPath = NodePath("../Patroller_Destination")
-speed = 2.0
+speed = 4.0
 
 [node name="Patroller_Destination" parent="Cars/Car3" instance=ExtResource( 5 )]
 position = Vector2( 670, 0 )
@@ -103,7 +167,7 @@ position = Vector2( 670, 0 )
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Friend_1" parent="Enemies" instance=ExtResource( 3 )]
-position = Vector2( 745, 270 )
+position = Vector2( 938, 266 )
 
 [node name="Patroller" parent="Enemies/Friend_1" instance=ExtResource( 4 )]
 destinationPath = NodePath("../Patroller_Destination")
@@ -112,7 +176,7 @@ destinationPath = NodePath("../Patroller_Destination")
 position = Vector2( 118, 0 )
 
 [node name="Friend_2" parent="Enemies" instance=ExtResource( 3 )]
-position = Vector2( 622, 20 )
+position = Vector2( 585, 20 )
 spriteFrames = ExtResource( 6 )
 
 [node name="Patroller" parent="Enemies/Friend_2" instance=ExtResource( 4 )]
@@ -130,10 +194,10 @@ destinationPath = NodePath("../Patroller_Destination")
 speed = 3.0
 
 [node name="Patroller_Destination" parent="Enemies/Friend_3" instance=ExtResource( 5 )]
-position = Vector2( 297.5, 0 )
+position = Vector2( 85.5, 0 )
 
 [node name="Friend_4" parent="Enemies" instance=ExtResource( 3 )]
-position = Vector2( 800, 385 )
+position = Vector2( 930, 385 )
 spriteFrames = ExtResource( 8 )
 
 [node name="Patroller" parent="Enemies/Friend_4" instance=ExtResource( 4 )]
@@ -141,27 +205,29 @@ destinationPath = NodePath("../Patroller_Destination")
 speed = 3.0
 
 [node name="Patroller_Destination" parent="Enemies/Friend_4" instance=ExtResource( 5 )]
-position = Vector2( 223, 150 )
+position = Vector2( 157.5, 152 )
 
 [node name="Cat" parent="Enemies" instance=ExtResource( 10 )]
 position = Vector2( 581, 459 )
 
-[node name="CatItem" parent="." instance=ExtResource( 14 )]
-position = Vector2( 490, 225 )
-
-[node name="SpeedUpItem" parent="." instance=ExtResource( 15 )]
-position = Vector2( 817, 159 )
-
-[node name="SpeedUpItem2" parent="." instance=ExtResource( 15 )]
-position = Vector2( 766, 499 )
-
 [node name="Buildings" type="Node2D" parent="."]
 
 [node name="School" parent="Buildings" instance=ExtResource( 23 )]
-position = Vector2( 244, 1 )
+position = Vector2( 919, 1 )
 
 [node name="Goal" parent="Buildings" instance=ExtResource( 19 )]
-position = Vector2( 422, 196 )
+position = Vector2( 1097, 196 )
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="CatItem" parent="Items" instance=ExtResource( 14 )]
+position = Vector2( 490, 225 )
+
+[node name="SpeedUpItem" parent="Items" instance=ExtResource( 15 )]
+position = Vector2( 817, 159 )
+
+[node name="SpeedUpItem2" parent="Items" instance=ExtResource( 15 )]
+position = Vector2( 766, 499 )
 
 [node name="Collectibles" type="Node" parent="." groups=["COLLECTIBLES"]]
 
@@ -172,10 +238,10 @@ position = Vector2( 406, 244 )
 position = Vector2( 933, 218 )
 
 [node name="Paper3" parent="Collectibles" instance=ExtResource( 17 )]
-position = Vector2( 989, 81 )
+position = Vector2( 730, 137 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 626, 276 )
+position = Vector2( 454, 410 )
 
 [node name="HealthBar" type="ProgressBar" parent="Player"]
 margin_left = -31.5
@@ -194,7 +260,7 @@ __meta__ = {
 wait_time = 0.1
 autostart = true
 
-[node name="CountUI" type="Control" parent="."]
+[node name="InGameUI" type="Control" parent="."]
 margin_left = 1043.0
 margin_right = 1315.0
 margin_bottom = 39.0
@@ -202,11 +268,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CollectibleCount" type="Label" parent="CountUI"]
+[node name="CollectibleCount" type="Label" parent="InGameUI"]
 margin_left = 116.0
-margin_top = 2.0
+margin_top = 7.0
 margin_right = 177.0
-margin_bottom = 39.0
+margin_bottom = 44.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 18 )
 text = "10"
@@ -215,11 +281,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MaxCollectibleCount" type="Label" parent="CountUI"]
-margin_left = 179.0
-margin_top = 2.0
-margin_right = 233.0
-margin_bottom = 39.0
+[node name="MaxCollectibleCount" type="Label" parent="InGameUI"]
+margin_left = 178.0
+margin_top = 7.0
+margin_right = 232.0
+margin_bottom = 44.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 18 )
 text = "/10"
@@ -227,14 +293,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PaperTextureRect" type="TextureRect" parent="CountUI"]
-margin_left = 66.0
-margin_top = -10.0
-margin_right = 266.0
-margin_bottom = 127.0
+[node name="PaperTextureRect" type="TextureRect" parent="InGameUI"]
+margin_left = 87.0
+margin_top = -8.0
+margin_right = 287.0
+margin_bottom = 129.0
 rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 21 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CatItemUI" type="TextureRect" parent="InGameUI"]
+margin_left = 55.0
+margin_top = 1.0
+margin_right = 71.0
+margin_bottom = 17.0
+rect_scale = Vector2( 3, 3 )
+texture = ExtResource( 24 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -299,6 +376,7 @@ __meta__ = {
 }
 
 [node name="GameStartUI" type="Control" parent="."]
+visible = false
 margin_left = 583.0
 margin_top = 283.0
 margin_right = 623.0
