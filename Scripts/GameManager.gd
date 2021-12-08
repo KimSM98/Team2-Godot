@@ -12,6 +12,8 @@ export(NodePath) var scoreLabelPath
 onready var scoreLabel = get_node(scoreLabelPath)
 export(NodePath) var restartButtonPath
 onready var restartButton = get_node(restartButtonPath)
+export(NodePath) var gameStartUIPath
+onready var gameStartUI = get_node(gameStartUIPath)
 
 onready var collectiblesNode = get_node("Collectibles")
 
@@ -67,6 +69,9 @@ func gameOver():
 	gameOverUI.visible = true
 	get_tree().paused = true
 	
+func gameStart():
+	gameStartUI.visible = true
+	get_tree().paused = true
 
 func initializeButton():
 	restartButton.connect("pressed", self, "restart")

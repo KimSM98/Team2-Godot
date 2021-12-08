@@ -294,5 +294,51 @@ margin_right = 74.0
 margin_bottom = 192.0
 rect_scale = Vector2( 5, 5 )
 texture_normal = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameStartUI" type="Control" parent="."]
+margin_left = 583.0
+margin_top = 283.0
+margin_right = 623.0
+margin_bottom = 323.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="GameStartUI"]
+margin_left = -585.0
+margin_top = -291.0
+margin_right = 701.0
+margin_bottom = 442.0
+color = Color( 0, 0, 0, 0.439216 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOver" type="Label" parent="GameStartUI"]
+margin_left = -83.0
+margin_top = -62.0
+margin_right = 277.0
+margin_bottom = 18.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 22 )
+text = "Game Start?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartButton" type="TextureButton" parent="GameStartUI"]
+margin_left = 348.0
+margin_top = 1056.0
+margin_right = 364.0
+margin_bottom = 1072.0
+rect_scale = Vector2( 5, 5 )
+texture_normal = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="timeout" from="Player/ms" to="Player" method="_on_ms_timeout"]
