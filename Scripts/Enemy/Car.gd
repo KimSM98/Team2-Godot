@@ -46,5 +46,5 @@ func SetAnimation():
 	animatedSprite.play()
 	
 func attack(player):
-	#player.gameOver()
-	pass
+	player.gameOver()
+	

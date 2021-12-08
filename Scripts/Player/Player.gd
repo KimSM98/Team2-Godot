@@ -39,6 +39,9 @@ func _process(delta):
 		s += 1
 		ms = 0
 		health -= 0.3
+	
+	if health <= 0:
+		gameOver()		
 
 func GetInput():
 	# Move 
@@ -104,16 +107,19 @@ func getCollectibleItem():
 func gameOver():
 	gameManagerNode.gameOver()
 
+func reduceHealth(var val):
+	health -= val
+
+# Wrote by Lee Seoyoung
 # Healthbar hit by a car
-func _reduce_health():
+func _reduce_health(): 
 	if ms  == 5 || ms  == 0:
 		health -= 2
 		
-	if health <= 0:
-		gameManagerNode.gameOver()
+	
 
 # Healthbar as time goes
-func _on_ms_timeout():
-	print(health)
+func _on_ms_timeout(): 
+#	print(health)
 	ms += 1
-
+# End of scripts wrote by Lee Seoyoung

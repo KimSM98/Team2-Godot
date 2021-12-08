@@ -68,6 +68,7 @@ extents = Vector2( 7.5, 6.5 )
 scale = Vector2( 2, 2 )
 collision_layer = 2
 script = ExtResource( 3 )
+damage = 20
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 12 )

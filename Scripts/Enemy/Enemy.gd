@@ -13,16 +13,17 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	detectCollision()
+	detectCollision(delta)
 
 func attack(var player):
 	pass
 
-func detectCollision():
+func detectCollision(var delta):
 	var collision = move_and_collide(Vector2())
 	if !collision:
 		return
 	else:
 		if collision.collider is Player:
 			attack(collision.collider)
+			collision.collider.reduceHealth(damage * delta)
 			#collision.collider._reduce_health(damage)
