@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scenes/Background/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Animation Frames/Friends/Friend_YellowHat.tres" type="SpriteFrames" id=6]
 [ext_resource path="res://Animation Frames/Friends/Friend_Bold.tres" type="SpriteFrames" id=7]
 [ext_resource path="res://Animation Frames/Friends/Friend_Headband.tres" type="SpriteFrames" id=8]
+[ext_resource path="res://Assets/UI/RestartButton.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Enemy/Cat.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Enemy/Car.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Animation Frames/Cars/Car_Green.tres" type="SpriteFrames" id=12]
@@ -19,7 +20,7 @@
 [ext_resource path="res://Fonts/CountFont.tres" type="DynamicFont" id=18]
 [ext_resource path="res://Scenes/Goal/Goal.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Fonts/Score.tres" type="DynamicFont" id=20]
-[ext_resource path="res://Assets/Item/paper.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Item/Paper2.png" type="Texture" id=21]
 [ext_resource path="res://Fonts/GameOverFont.tres" type="DynamicFont" id=22]
 [ext_resource path="res://Scenes/Buildings/School.tscn" type="PackedScene" id=23]
 
@@ -48,6 +49,7 @@ collectibleCountLabelPath = NodePath("CountUI/CollectibleCount")
 maxCollectibleCountLabelPath = NodePath("CountUI/MaxCollectibleCount")
 gameOverUIPath = NodePath("GameOverUI")
 scoreLabelPath = NodePath("GameOverUI/Score")
+restartButtonPath = NodePath("GameOverUI/RestartButton")
 
 [node name="Background" parent="." instance=ExtResource( 1 )]
 
@@ -224,10 +226,11 @@ __meta__ = {
 }
 
 [node name="PaperTextureRect" type="TextureRect" parent="CountUI"]
-margin_left = 101.0
-margin_top = 5.0
-margin_right = 137.0
-margin_bottom = 38.0
+margin_left = 66.0
+margin_top = -10.0
+margin_right = 266.0
+margin_bottom = 127.0
+rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 21 )
 expand = true
 __meta__ = {
@@ -235,7 +238,7 @@ __meta__ = {
 }
 
 [node name="GameOverUI" type="Control" parent="."]
-visible = false
+pause_mode = 2
 margin_left = 583.0
 margin_top = 283.0
 margin_right = 772.0
@@ -246,9 +249,9 @@ __meta__ = {
 
 [node name="ColorRect" type="ColorRect" parent="GameOverUI"]
 margin_left = -584.0
-margin_top = -292.0
+margin_top = -288.0
 margin_right = 702.0
-margin_bottom = 441.0
+margin_bottom = 445.0
 color = Color( 0, 0, 0, 0.439216 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -280,5 +283,13 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="RestartButton" type="TextureButton" parent="GameOverUI"]
+margin_left = 58.0
+margin_top = 176.0
+margin_right = 74.0
+margin_bottom = 192.0
+rect_scale = Vector2( 5, 5 )
+texture_normal = ExtResource( 9 )
 
 [connection signal="timeout" from="Player/ms" to="Player" method="_on_ms_timeout"]

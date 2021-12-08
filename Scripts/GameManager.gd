@@ -10,6 +10,8 @@ export(NodePath) var gameOverUIPath
 onready var gameOverUI = get_node(gameOverUIPath)
 export(NodePath) var scoreLabelPath
 onready var scoreLabel = get_node(scoreLabelPath)
+export(NodePath) var restartButtonPath
+onready var restartButton = get_node(restartButtonPath)
 
 onready var collectiblesNode = get_node("Collectibles")
 
@@ -25,6 +27,8 @@ func _ready():
 	gameOverUI.visible = false
 	updateMaxCount()
 	updateCollectibleCount()
+	
+	initializeButton()
 
 # Update Labels
 func updateMaxCount():
@@ -62,3 +66,12 @@ func gameOver():
 	getScore()
 	gameOverUI.visible = true
 	get_tree().paused = true
+	
+
+func initializeButton():
+	restartButton.connect("pressed", self, "restart")
+	
+func restart():
+	get_tree().change_scene("res://Main.tscn")
+	get_tree().paused = false
+	print("Restart")
