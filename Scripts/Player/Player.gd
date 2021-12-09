@@ -75,14 +75,15 @@ func getCatObject(var obj):
 	if(deleteCat == true):
 		obj.delete()
 		deleteCat = false
+		gameManagerNode.hideCatItemUI()
 
 func deleteCatObject():
+	gameManagerNode.showCatItemUI()
 	deleteCat = true
 
 # Speed up item
 func speedUp():
 	speed = initSpeed * 2
-	
 	currentSpeedState = SPEED.UP
 	timerNode.set_wait_time(2)
 	timerNode.start()

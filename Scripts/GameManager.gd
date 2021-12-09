@@ -14,6 +14,8 @@ export(NodePath) var restartButtonPath
 onready var restartButton = get_node(restartButtonPath)
 export(NodePath) var gameStartUIPath
 onready var gameStartUI = get_node(gameStartUIPath)
+export(NodePath) var catItemUIPath
+onready var catItemUI = get_node(catItemUIPath)
 
 onready var collectiblesNode = get_node("Collectibles")
 
@@ -27,10 +29,13 @@ var time
 
 func _ready():
 	gameOverUI.visible = false
+	hideCatItemUI()
+	
 	updateMaxCount()
 	updateCollectibleCount()
 	
 	initializeButton()
+	
 
 # Update Labels
 func updateMaxCount():
@@ -72,11 +77,17 @@ func gameOver():
 func gameStart():
 	gameStartUI.visible = true
 	get_tree().paused = true
+	
+func showCatItemUI():
+	catItemUI.visible = true
+
+func hideCatItemUI():
+	catItemUI.visible = false
 
 func initializeButton():
 	restartButton.connect("pressed", self, "restart")
 	
 func restart():
-	get_tree().change_scene("res://Main.tscn")
+	get_tree().change_scene("res://Level2.tscn")
 	get_tree().paused = false
 	print("Restart")

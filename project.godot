@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Team2_Godot"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://Level2.tscn"
 config/icon="res://icon.png"
 
 [display]
