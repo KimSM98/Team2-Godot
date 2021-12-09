@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Fonts/GameOverFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/UI/StartButton.png" type="Texture" id=2]
+
+[node name="GameStartUI" type="Control"]
+margin_left = 583.0
+margin_top = 283.0
+margin_right = 623.0
+margin_bottom = 323.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -585.0
+margin_top = -291.0
+margin_right = 701.0
+margin_bottom = 442.0
+color = Color( 0, 0, 0, 0.439216 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameStart" type="Label" parent="."]
+anchor_left = 2.205
+anchor_top = 2.7
+anchor_right = 2.205
+anchor_bottom = 2.7
+margin_left = -214.2
+margin_top = -128.0
+margin_right = 225.8
+margin_bottom = -48.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Game Start?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchor_left = -3.433
+anchor_top = 3.05
+anchor_right = -3.433
+anchor_bottom = 3.05
+margin_left = 188.32
+margin_top = -3.00001
+margin_right = 275.32
+margin_bottom = 84.0
+texture_normal = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -299,6 +299,7 @@ __meta__ = {
 }
 
 [node name="GameStartUI" type="Control" parent="."]
+visible = false
 margin_left = 583.0
 margin_top = 283.0
 margin_right = 623.0
@@ -317,7 +318,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GameOver" type="Label" parent="GameStartUI"]
+[node name="GameStart" type="Label" parent="GameStartUI"]
 margin_left = -83.0
 margin_top = -62.0
 margin_right = 277.0
@@ -330,7 +331,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RestartButton" type="TextureButton" parent="GameStartUI"]
+[node name="StartButton" type="TextureButton" parent="GameStartUI"]
 margin_left = 348.0
 margin_top = 1056.0
 margin_right = 364.0
