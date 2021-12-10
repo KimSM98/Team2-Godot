@@ -581,34 +581,34 @@ tile_data = PoolIntArray( 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 
 [node name="Tree" type="Node2D" parent="Background"]
 
 [node name="Tree_Green" parent="Background/Tree" instance=ExtResource( 3 )]
-position = Vector2( 937, 124 )
+position = Vector2( 937, 509 )
 
 [node name="Tree_Green2" parent="Background/Tree" instance=ExtResource( 4 )]
 position = Vector2( 939, 604 )
 
 [node name="Tree_Green3" parent="Background/Tree" instance=ExtResource( 3 )]
-position = Vector2( 407, 663 )
+position = Vector2( 410, 660 )
 
 [node name="Tree_Green4" parent="Background/Tree" instance=ExtResource( 4 )]
-position = Vector2( 179, 644 )
+position = Vector2( 179, 655 )
 
 [node name="Tree_Green5" parent="Background/Tree" instance=ExtResource( 3 )]
-position = Vector2( 185, 215 )
+position = Vector2( 182, 231 )
 
 [node name="Tree_Green6" parent="Background/Tree" instance=ExtResource( 4 )]
-position = Vector2( 408, 122 )
+position = Vector2( 410, 99 )
 
 [node name="Tree_Green7" parent="Background/Tree" instance=ExtResource( 3 )]
-position = Vector2( 712, 322 )
+position = Vector2( 582, 356 )
 
 [node name="Tree_Green8" parent="Background/Tree" instance=ExtResource( 3 )]
-position = Vector2( 183, 449 )
+position = Vector2( 184, 443 )
 
 [node name="Tree_Green9" parent="Background/Tree" instance=ExtResource( 4 )]
-position = Vector2( 808, 305 )
+position = Vector2( 808, 331 )
 
 [node name="Tree_Green10" parent="Background/Tree" instance=ExtResource( 3 )]
-position = Vector2( 708, 578 )
+position = Vector2( 712, 577 )
 
 [node name="Tree_Green11" parent="Background/Tree" instance=ExtResource( 4 )]
-position = Vector2( 409, 360 )
+position = Vector2( 410, 382 )

@@ -1,0 +1,389 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/Score.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fonts/CountFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Fonts/GameOverFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Assets/Item/CatFood.png" type="Texture" id=5]
+[ext_resource path="res://Assets/UI/RestartButton.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Item/Paper2.png" type="Texture" id=7]
+[ext_resource path="res://Background.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Animation Frames/Friends/Friend_Bold.tres" type="SpriteFrames" id=9]
+[ext_resource path="res://Animation Frames/Friends/Friend_Headband.tres" type="SpriteFrames" id=10]
+[ext_resource path="res://Animation Frames/Cars/Car_Green.tres" type="SpriteFrames" id=11]
+[ext_resource path="res://Animation Frames/Cars/Car_Yellow.tres" type="SpriteFrames" id=12]
+[ext_resource path="res://Scenes/Items/SpeedUp.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Items/Paper.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Enemy/Car.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Items/CatItem.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Goal/Goal.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Enemy/Patroller_Destination.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/Enemy/Friend.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scenes/Objects/School.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/Enemy/Cat.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/Enemy/Patroller.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=24]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 0.407843, 0.407843, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+corner_radius_top_left = 3
+corner_radius_bottom_left = 3
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 10
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 1 )
+collectibleCountLabelPath = NodePath("InGameUI/CollectibleCount")
+maxCollectibleCountLabelPath = NodePath("InGameUI/MaxCollectibleCount")
+gameOverUIPath = NodePath("GameOverUI")
+scoreLabelPath = NodePath("GameOverUI/Score")
+restartButtonPath = NodePath("GameOverUI/RestartButton")
+catItemUIPath = NodePath("InGameUI/CatItemUI")
+
+[node name="Node2D" parent="." instance=ExtResource( 8 )]
+
+[node name="Cars" type="Node2D" parent="."]
+
+[node name="Car" parent="Cars" instance=ExtResource( 16 )]
+position = Vector2( 631, -33 )
+
+[node name="Patroller" parent="Cars/Car" instance=ExtResource( 23 )]
+destinationPath = NodePath("../Patroller_Destination")
+speed = 3.0
+
+[node name="Patroller_Destination" parent="Cars/Car" instance=ExtResource( 19 )]
+position = Vector2( 0, 385 )
+
+[node name="Car4" parent="Cars" instance=ExtResource( 16 )]
+position = Vector2( 669, 727 )
+spriteFrames = ExtResource( 11 )
+
+[node name="Patroller" parent="Cars/Car4" instance=ExtResource( 23 )]
+destinationPath = NodePath("../Patroller_Destination")
+
+[node name="Patroller_Destination" parent="Cars/Car4" instance=ExtResource( 19 )]
+position = Vector2( 0, -375.5 )
+
+[node name="Car5" parent="Cars" instance=ExtResource( 16 )]
+position = Vector2( 851, -32 )
+spriteFrames = ExtResource( 12 )
+
+[node name="Patroller" parent="Cars/Car5" instance=ExtResource( 23 )]
+destinationPath = NodePath("../Patroller_Destination")
+speed = 4.0
+
+[node name="Patroller_Destination" parent="Cars/Car5" instance=ExtResource( 19 )]
+position = Vector2( 0, 385 )
+
+[node name="Car6" parent="Cars" instance=ExtResource( 16 )]
+position = Vector2( 889, 728 )
+
+[node name="Patroller" parent="Cars/Car6" instance=ExtResource( 23 )]
+destinationPath = NodePath("../Patroller_Destination")
+speed = 3.0
+
+[node name="Patroller_Destination" parent="Cars/Car6" instance=ExtResource( 19 )]
+position = Vector2( 0, -375.5 )
+
+[node name="Car7" parent="Cars" instance=ExtResource( 16 )]
+position = Vector2( 232, -32 )
+spriteFrames = ExtResource( 12 )
+
+[node name="Patroller" parent="Cars/Car7" instance=ExtResource( 23 )]
+destinationPath = NodePath("../Patroller_Destination")
+speed = 3.0
+
+[node name="Patroller_Destination" parent="Cars/Car7" instance=ExtResource( 19 )]
+position = Vector2( 0, 385 )
+
+[node name="Car10" parent="Cars" instance=ExtResource( 16 )]
+position = Vector2( 364, 727 )
+
+[node name="Patroller" parent="Cars/Car10" instance=ExtResource( 23 )]
+destinationPath = NodePath("../Patroller_Destination")
+speed = 7.0
+
+[node name="Patroller_Destination" parent="Cars/Car10" instance=ExtResource( 19 )]
+position = Vector2( 0, -375.5 )
+
+[node name="Buildings" type="Node2D" parent="."]
+
+[node name="School" parent="Buildings" instance=ExtResource( 21 )]
+position = Vector2( 919, 1 )
+
+[node name="Goal" parent="Buildings" instance=ExtResource( 18 )]
+position = Vector2( 1097, 196 )
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="CatItem" parent="Items" instance=ExtResource( 17 )]
+position = Vector2( 490, 225 )
+
+[node name="CatItem3" parent="Items" instance=ExtResource( 17 )]
+position = Vector2( 30, 243 )
+
+[node name="CatItem4" parent="Items" instance=ExtResource( 17 )]
+position = Vector2( 993, 671 )
+
+[node name="CatItem5" parent="Items" instance=ExtResource( 17 )]
+position = Vector2( 794, 32 )
+
+[node name="SpeedUpItem" parent="Items" instance=ExtResource( 14 )]
+position = Vector2( 817, 159 )
+
+[node name="SpeedUpItem3" parent="Items" instance=ExtResource( 14 )]
+position = Vector2( 105, 41 )
+
+[node name="SpeedUpItem4" parent="Items" instance=ExtResource( 14 )]
+position = Vector2( 431, 456 )
+
+[node name="SpeedUpItem2" parent="Items" instance=ExtResource( 14 )]
+position = Vector2( 766, 499 )
+
+[node name="Collectibles" type="Node" parent="." groups=["COLLECTIBLES"]]
+
+[node name="Paper" parent="Collectibles" instance=ExtResource( 15 )]
+position = Vector2( 473, 265 )
+
+[node name="Paper2" parent="Collectibles" instance=ExtResource( 15 )]
+position = Vector2( 961, 226 )
+
+[node name="Paper3" parent="Collectibles" instance=ExtResource( 15 )]
+position = Vector2( 730, 137 )
+
+[node name="Paper4" parent="Collectibles" instance=ExtResource( 15 )]
+position = Vector2( 55, 91 )
+
+[node name="Paper5" parent="Collectibles" instance=ExtResource( 15 )]
+position = Vector2( 92, 481 )
+
+[node name="Paper8" parent="Collectibles" instance=ExtResource( 15 )]
+position = Vector2( 1245, 586 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Friend_3" parent="Enemies" instance=ExtResource( 20 )]
+position = Vector2( 21, 385 )
+spriteFrames = ExtResource( 9 )
+
+[node name="Patroller" parent="Enemies/Friend_3" instance=ExtResource( 23 )]
+destinationPath = NodePath("../Patroller_Destination")
+speed = 3.0
+
+[node name="Patroller_Destination" parent="Enemies/Friend_3" instance=ExtResource( 19 )]
+position = Vector2( 85.5, 0 )
+
+[node name="Friend_4" parent="Enemies" instance=ExtResource( 20 )]
+position = Vector2( 930, 385 )
+spriteFrames = ExtResource( 10 )
+
+[node name="Patroller" parent="Enemies/Friend_4" instance=ExtResource( 23 )]
+destinationPath = NodePath("../Patroller_Destination")
+speed = 3.0
+
+[node name="Patroller_Destination" parent="Enemies/Friend_4" instance=ExtResource( 19 )]
+position = Vector2( 157.5, 152 )
+
+[node name="Cat3" parent="Enemies" instance=ExtResource( 22 )]
+position = Vector2( 140, 220 )
+
+[node name="Cat4" parent="Enemies" instance=ExtResource( 22 )]
+position = Vector2( 554, 102 )
+
+[node name="Cat6" parent="Enemies" instance=ExtResource( 22 )]
+position = Vector2( 1164, 451 )
+
+[node name="Player" parent="." instance=ExtResource( 24 )]
+position = Vector2( 74, 673 )
+
+[node name="HealthBar" type="ProgressBar" parent="Player"]
+margin_left = -31.5
+margin_top = -22.5
+margin_right = 31.5
+margin_bottom = -16.5
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+value = 98.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ms" type="Timer" parent="Player"]
+wait_time = 0.1
+autostart = true
+
+[node name="InGameUI" type="Control" parent="."]
+margin_left = 1043.0
+margin_right = 1315.0
+margin_bottom = 39.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollectibleCount" type="Label" parent="InGameUI"]
+margin_left = 116.0
+margin_top = 7.0
+margin_right = 177.0
+margin_bottom = 44.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "10"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MaxCollectibleCount" type="Label" parent="InGameUI"]
+margin_left = 178.0
+margin_top = 7.0
+margin_right = 232.0
+margin_bottom = 44.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "/10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PaperTextureRect" type="TextureRect" parent="InGameUI"]
+margin_left = 87.0
+margin_top = -8.0
+margin_right = 287.0
+margin_bottom = 129.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CatItemUI" type="TextureRect" parent="InGameUI"]
+margin_left = 55.0
+margin_top = 1.0
+margin_right = 71.0
+margin_bottom = 17.0
+rect_scale = Vector2( 3, 3 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOverUI" type="Control" parent="."]
+pause_mode = 2
+visible = false
+margin_left = 583.0
+margin_top = 283.0
+margin_right = 772.0
+margin_bottom = 373.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="GameOverUI"]
+margin_left = -584.0
+margin_top = -288.0
+margin_right = 702.0
+margin_bottom = 445.0
+color = Color( 0, 0, 0, 0.439216 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOver" type="Label" parent="GameOverUI"]
+margin_left = -82.0
+margin_top = -63.0
+margin_right = 278.0
+margin_bottom = 17.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "GameOver!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="GameOverUI"]
+margin_left = -11.0
+margin_top = 15.0
+margin_right = 202.0
+margin_bottom = 168.0
+custom_fonts/font = ExtResource( 2 )
+text = "SCORE
+A"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartButton" type="TextureButton" parent="GameOverUI"]
+margin_left = 58.0
+margin_top = 176.0
+margin_right = 74.0
+margin_bottom = 192.0
+rect_scale = Vector2( 5, 5 )
+texture_normal = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameStartUI" type="Control" parent="."]
+visible = false
+margin_left = 583.0
+margin_top = 283.0
+margin_right = 623.0
+margin_bottom = 323.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="GameStartUI"]
+margin_left = -585.0
+margin_top = -291.0
+margin_right = 701.0
+margin_bottom = 442.0
+color = Color( 0, 0, 0, 0.439216 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOver" type="Label" parent="GameStartUI"]
+margin_left = -83.0
+margin_top = -62.0
+margin_right = 277.0
+margin_bottom = 18.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Game Start?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartButton" type="TextureButton" parent="GameStartUI"]
+margin_left = 348.0
+margin_top = 1056.0
+margin_right = 364.0
+margin_bottom = 1072.0
+rect_scale = Vector2( 5, 5 )
+texture_normal = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="timeout" from="Player/ms" to="Player" method="_on_ms_timeout"]
