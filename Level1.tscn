@@ -7,7 +7,7 @@
 [ext_resource path="res://Assets/Item/CatFood.png" type="Texture" id=5]
 [ext_resource path="res://Assets/UI/RestartButton.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Item/Paper2.png" type="Texture" id=7]
-[ext_resource path="res://Background.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Background/Background_Level1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Animation Frames/Friends/Friend_Bold.tres" type="SpriteFrames" id=9]
 [ext_resource path="res://Animation Frames/Friends/Friend_Headband.tres" type="SpriteFrames" id=10]
 [ext_resource path="res://Animation Frames/Cars/Car_Green.tres" type="SpriteFrames" id=11]
