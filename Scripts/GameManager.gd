@@ -88,6 +88,7 @@ func initializeButton():
 	restartButton.connect("pressed", self, "restart")
 	
 func restart():
-	get_tree().change_scene("res://Level2.tscn")
+	#get_tree().change_scene("res://Level1.tscn")
+	get_tree().reload_current_scene()
 	get_tree().paused = false
 	print("Restart")

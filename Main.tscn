@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/MainMenu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/UI/LevelButton_2.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Item/paper.png" type="Texture" id=3]
 [ext_resource path="res://Assets/UI/CreditButton.png" type="Texture" id=4]
 [ext_resource path="res://Assets/UI/Credit-export.png" type="Texture" id=5]
+[ext_resource path="res://Assets/UI/LevelButton_1.png" type="Texture" id=6]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
@@ -17,11 +18,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Level1" type="TextureButton" parent="UI"]
+margin_left = 480.0
+margin_top = 399.0
+margin_right = 496.0
+margin_bottom = 415.0
+rect_scale = Vector2( 7, 7 )
+texture_normal = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Level2" type="TextureButton" parent="UI"]
-margin_left = 725.0
-margin_top = 437.0
-margin_right = 741.0
-margin_bottom = 453.0
+margin_left = 722.0
+margin_top = 400.0
+margin_right = 738.0
+margin_bottom = 416.0
 rect_scale = Vector2( 7, 7 )
 texture_normal = ExtResource( 2 )
 __meta__ = {
@@ -51,6 +63,7 @@ __meta__ = {
 }
 
 [node name="CreditRect" type="TextureRect" parent="UI"]
+visible = false
 margin_left = 126.0
 margin_top = 50.0
 margin_right = 1126.0
