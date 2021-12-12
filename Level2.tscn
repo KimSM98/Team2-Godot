@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/Score.tres" type="DynamicFont" id=2]
@@ -27,6 +27,15 @@
 [ext_resource path="res://Scenes/Objects/Tree_Green.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Scenes/Items/AddingTime.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Scenes/UI/MainButton.tscn" type="PackedScene" id=27]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 641, 10 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 642, 10 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 10, 359.5 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 1, 0.407843, 0.407843, 1 )
@@ -59,6 +68,25 @@ restartButtonPath = NodePath("GameOverUI/RestartButton")
 catItemUIPath = NodePath("InGameUI/CatItemUI")
 
 [node name="Background" parent="." instance=ExtResource( 13 )]
+
+[node name="Boundary" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary"]
+position = Vector2( 642, -12 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundary"]
+position = Vector2( 641, 731 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Boundary"]
+position = Vector2( -11, 360.5 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Boundary"]
+position = Vector2( 1290, 363 )
+shape = SubResource( 6 )
 
 [node name="Cars" type="Node2D" parent="."]
 
