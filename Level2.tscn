@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/Score.tres" type="DynamicFont" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Scenes/Enemy/Patroller.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Scenes/Objects/Tree_Green.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Scenes/Items/AddingTime.tscn" type="PackedScene" id=26]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 1, 0.407843, 0.407843, 1 )
@@ -201,6 +202,12 @@ position = Vector2( 431, 456 )
 
 [node name="SpeedUpItem2" parent="Items" instance=ExtResource( 14 )]
 position = Vector2( 766, 499 )
+
+[node name="TimerItem" parent="Items" instance=ExtResource( 26 )]
+position = Vector2( 1021, 549 )
+
+[node name="TimerItem2" parent="Items" instance=ExtResource( 26 )]
+position = Vector2( 448, 148 )
 
 [node name="Collectibles" type="Node" parent="." groups=["COLLECTIBLES"]]
 

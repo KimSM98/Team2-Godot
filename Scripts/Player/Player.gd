@@ -124,3 +124,9 @@ func _on_ms_timeout():
 #	print(health)
 	ms += 1
 # End of scripts wrote by Lee Seoyoung
+
+func addTime(var val):
+	
+	var temp = health + val
+	health = min(temp, 99)
+	print(health)
