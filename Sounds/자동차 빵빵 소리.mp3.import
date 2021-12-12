@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/자동차 빵빵 소리.mp3-73319e6e3c7daec6c341fdc7afe28546.mp3str"
+
+[deps]
+
+source_file="res://Sounds/자동차 빵빵 소리.mp3"
+dest_files=[ "res://.import/자동차 빵빵 소리.mp3-73319e6e3c7daec6c341fdc7afe28546.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

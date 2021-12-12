@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/Score.tres" type="DynamicFont" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Scenes/Objects/Tree_Green.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Scenes/Items/AddingTime.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Scenes/UI/MainButton.tscn" type="PackedScene" id=27]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 1, 0.407843, 0.407843, 1 )
@@ -209,7 +210,7 @@ position = Vector2( 1021, 549 )
 [node name="TimerItem2" parent="Items" instance=ExtResource( 26 )]
 position = Vector2( 448, 148 )
 
-[node name="Collectibles" type="Node" parent="." groups=["COLLECTIBLES"]]
+[node name="Collectibles" type="Node2D" parent="." groups=["COLLECTIBLES"]]
 
 [node name="Paper" parent="Collectibles" instance=ExtResource( 15 )]
 position = Vector2( 473, 265 )
@@ -486,15 +487,21 @@ __meta__ = {
 }
 
 [node name="RestartButton" type="TextureButton" parent="GameOverUI"]
-margin_left = 58.0
-margin_top = 176.0
-margin_right = 74.0
-margin_bottom = 192.0
+margin_left = 5.99994
+margin_top = 188.0
+margin_right = 21.9999
+margin_bottom = 204.0
 rect_scale = Vector2( 5, 5 )
 texture_normal = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MainButton" parent="GameOverUI" instance=ExtResource( 27 )]
+margin_left = 103.0
+margin_top = 187.0
+margin_right = 119.0
+margin_bottom = 203.0
 
 [node name="GameStartUI" type="Control" parent="."]
 visible = false
