@@ -5,22 +5,20 @@ export(NodePath) var level2_ButtonPath
 onready var level2_Button = get_node(level2_ButtonPath)
 export(NodePath) var level1_ButtonPath
 onready var level1_Button = get_node("UI/Level1")
+onready var ruleButton = get_node("UI/RuleButton")
+onready var ruleRect = get_node("UI/RuleRect")
 onready var creditButton = get_node("UI/Credit")
 onready var creditRect = get_node("UI/CreditRect")
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	initializeButtons()
 	
 	hideCredit()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 func initializeButtons():
 	level1_Button.connect("pressed", self, "startLevel1")
 	level2_Button.connect("pressed", self, "startLevel2")
+	ruleButton.connect("pressed", self, "ruleButtonFunc")	
 	creditButton.connect("pressed", self, "creditButtondFunc")
 	
 func startLevel1():
@@ -37,9 +35,26 @@ func showCredit():
 func hideCredit():
 	creditRect.visible = false;
 
-func creditButtondFunc():
+func creditButtondFunc():	
 	if creditRect.visible == true:
 		hideCredit()
 	else:
+		hideAllRects()
 		showCredit()
 
+func showRules():
+	ruleRect.visible = true;
+	
+func hideRules():
+	ruleRect.visible = false;
+
+func ruleButtonFunc():	
+	if ruleRect.visible == true:
+		hideRules()
+	else:
+		hideAllRects()
+		showRules()
+
+func hideAllRects():
+	hideCredit()
+	hideRules()
