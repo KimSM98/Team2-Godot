@@ -46,5 +46,6 @@ func SetAnimation():
 	animatedSprite.play()
 	
 func attack(player):
+	player.playCarAccident()
 	player.gameOver()
 	

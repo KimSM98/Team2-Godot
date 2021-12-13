@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 class_name Player
 
+onready var audio = $AudioStreamPlayer
 onready var animatedSprite = $AnimatedSprite
 onready var gameManagerNode =  get_node("..")
 onready var timerNode = get_node("Timer")
@@ -130,3 +131,6 @@ func addTime(var val):
 	var temp = health + val
 	health = min(temp, 99)
 	print(health)
+
+func playCarAccident():
+	audio.playCarAnccident()

@@ -54,7 +54,9 @@ func addAssignmentCount():
 
 func getScore():
 	var val = collectibleCount * 100 / collectibleMaxCount
-	if val > 80:
+	if val == 100:
+		score = "A+"
+	elif val > 80:
 		score = "A"
 	elif val > 60:
 		score = "B"

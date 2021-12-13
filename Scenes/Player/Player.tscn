@@ -1,19 +1,21 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Tiles/tilemap_packed.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Sounds/PlayerSounds.gd" type="Script" id=3]
+[ext_resource path="res://Sounds/CarHorn.mp3" type="AudioStream" id=4]
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 1 )
 region = Rect2( 384, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 1 )
-region = Rect2( 400, 16, 16, 16 )
+region = Rect2( 384, 16, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 1 )
-region = Rect2( 400, 32, 16, 16 )
+region = Rect2( 384, 32, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
@@ -27,13 +29,13 @@ region = Rect2( 416, 0, 16, 16 )
 atlas = ExtResource( 1 )
 region = Rect2( 416, 16, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 1 )
-region = Rect2( 384, 16, 16, 16 )
+region = Rect2( 400, 16, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 1 )
-region = Rect2( 384, 32, 16, 16 )
+region = Rect2( 400, 32, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
@@ -58,9 +60,9 @@ animations = [ {
 "name": "default",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 8 ), SubResource( 9 ) ],
+"frames": [ SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,
-"name": "MoveUp",
+"name": "MoveDown",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 2 ), SubResource( 14 ), SubResource( 1 ), SubResource( 14 ) ],
@@ -68,9 +70,9 @@ animations = [ {
 "name": "MoveRight",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 10 ), SubResource( 11 ) ],
+"frames": [ SubResource( 8 ), SubResource( 9 ) ],
 "loop": true,
-"name": "MoveDown",
+"name": "MoveUp",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 5 ), SubResource( 12 ), SubResource( 4 ), SubResource( 13 ) ],
@@ -96,6 +98,10 @@ shape = SubResource( 6 )
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 4 )
+script = ExtResource( 3 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_AudioStreamPlayer_finished"]

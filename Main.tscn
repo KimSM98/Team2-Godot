@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/MainMenu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/UI/LevelButton_2.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/UI/LevelButton_1.png" type="Texture" id=6]
 [ext_resource path="res://Sounds/BGM_Main.mp3" type="AudioStream" id=7]
 [ext_resource path="res://Assets/UI/game controls.png" type="Texture" id=8]
+[ext_resource path="res://Assets/UI/MainScreen.png" type="Texture" id=9]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
@@ -20,11 +21,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="BG" type="TextureRect" parent="UI"]
+margin_left = -1.0
+margin_top = -4.0
+margin_right = 1591.0
+margin_bottom = 887.0
+rect_scale = Vector2( 0.81, 0.81 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Level1" type="TextureButton" parent="UI"]
-margin_left = 480.0
-margin_top = 399.0
-margin_right = 496.0
-margin_bottom = 415.0
+margin_left = 477.0
+margin_top = 460.0
+margin_right = 493.0
+margin_bottom = 476.0
 rect_scale = Vector2( 7, 7 )
 texture_normal = ExtResource( 6 )
 __meta__ = {
@@ -32,10 +44,10 @@ __meta__ = {
 }
 
 [node name="Level2" type="TextureButton" parent="UI"]
-margin_left = 722.0
-margin_top = 400.0
-margin_right = 738.0
-margin_bottom = 416.0
+margin_left = 719.0
+margin_top = 461.0
+margin_right = 735.0
+margin_bottom = 477.0
 rect_scale = Vector2( 7, 7 )
 texture_normal = ExtResource( 2 )
 __meta__ = {

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/Score.tres" type="DynamicFont" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Scenes/Enemy/Cat.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/Enemy/Patroller.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/Sounds/GameBGM.tscn" type="PackedScene" id=25]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 1, 0.407843, 0.407843, 1 )
@@ -129,6 +130,26 @@ position = Vector2( 919, 1 )
 [node name="Goal" parent="Buildings" instance=ExtResource( 18 )]
 position = Vector2( 1097, 196 )
 
+[node name="Collectibles" type="Node2D" parent="." groups=["COLLECTIBLES"]]
+
+[node name="Paper" parent="Collectibles" instance=ExtResource( 15 )]
+position = Vector2( 473, 265 )
+
+[node name="Paper2" parent="Collectibles" instance=ExtResource( 15 )]
+position = Vector2( 961, 226 )
+
+[node name="Paper3" parent="Collectibles" instance=ExtResource( 15 )]
+position = Vector2( 730, 137 )
+
+[node name="Paper4" parent="Collectibles" instance=ExtResource( 15 )]
+position = Vector2( 55, 91 )
+
+[node name="Paper5" parent="Collectibles" instance=ExtResource( 15 )]
+position = Vector2( 92, 481 )
+
+[node name="Paper8" parent="Collectibles" instance=ExtResource( 15 )]
+position = Vector2( 1245, 586 )
+
 [node name="Items" type="Node2D" parent="."]
 
 [node name="CatItem" parent="Items" instance=ExtResource( 17 )]
@@ -154,26 +175,6 @@ position = Vector2( 431, 456 )
 
 [node name="SpeedUpItem2" parent="Items" instance=ExtResource( 14 )]
 position = Vector2( 766, 499 )
-
-[node name="Collectibles" type="Node" parent="." groups=["COLLECTIBLES"]]
-
-[node name="Paper" parent="Collectibles" instance=ExtResource( 15 )]
-position = Vector2( 473, 265 )
-
-[node name="Paper2" parent="Collectibles" instance=ExtResource( 15 )]
-position = Vector2( 961, 226 )
-
-[node name="Paper3" parent="Collectibles" instance=ExtResource( 15 )]
-position = Vector2( 730, 137 )
-
-[node name="Paper4" parent="Collectibles" instance=ExtResource( 15 )]
-position = Vector2( 55, 91 )
-
-[node name="Paper5" parent="Collectibles" instance=ExtResource( 15 )]
-position = Vector2( 92, 481 )
-
-[node name="Paper8" parent="Collectibles" instance=ExtResource( 15 )]
-position = Vector2( 1245, 586 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -391,5 +392,7 @@ texture_normal = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="GameBGM" parent="." instance=ExtResource( 25 )]
 
 [connection signal="timeout" from="Player/ms" to="Player" method="_on_ms_timeout"]

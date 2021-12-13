@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/Score.tres" type="DynamicFont" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://Scenes/Objects/Tree_Green.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Scenes/Items/AddingTime.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Scenes/UI/MainButton.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Scenes/Sounds/GameBGM.tscn" type="PackedScene" id=28]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 641, 10 )
@@ -574,5 +575,7 @@ texture_normal = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="GameBGM" parent="." instance=ExtResource( 28 )]
 
 [connection signal="timeout" from="Player/ms" to="Player" method="_on_ms_timeout"]
