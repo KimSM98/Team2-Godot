@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/UI/CreditButton.png" type="Texture" id=4]
 [ext_resource path="res://Assets/UI/Credit-export.png" type="Texture" id=5]
 [ext_resource path="res://Assets/UI/LevelButton_1.png" type="Texture" id=6]
-[ext_resource path="res://Sounds/BGM_Main.mp3" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/BGM/BGM_Main.mp3" type="AudioStream" id=7]
 [ext_resource path="res://Assets/UI/game controls.png" type="Texture" id=8]
 [ext_resource path="res://Assets/UI/MainScreen.png" type="Texture" id=9]
 

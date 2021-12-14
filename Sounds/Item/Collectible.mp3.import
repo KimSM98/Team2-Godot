@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Collectible.mp3-5965403059b3031785dac67df3fd284e.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Item/Collectible.mp3"
+dest_files=[ "res://.import/Collectible.mp3-5965403059b3031785dac67df3fd284e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

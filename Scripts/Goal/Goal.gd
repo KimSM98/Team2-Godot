@@ -12,4 +12,4 @@ func _ready():
 
 
 func _on_Goal_body_entered(body):
-	body.gameOver()
+	body.goal()

@@ -42,7 +42,7 @@ func _process(delta):
 		health -= 0.3
 	
 	if health <= 0:
-		gameOver()		
+		timeOver()		
 
 func GetInput():
 	# Move 
@@ -81,6 +81,8 @@ func getCatObject(var obj):
 func deleteCatObject():
 	gameManagerNode.showCatItemUI()
 	deleteCat = true
+	
+	audio.playCatItem()
 
 # Speed up item
 func speedUp():
@@ -88,7 +90,10 @@ func speedUp():
 	currentSpeedState = SPEED.UP
 	timerNode.set_wait_time(2)
 	timerNode.start()
+	
+	audio.playSpeedUp()
 
+# collision with friends
 func speedDown():
 	# if player is using speedUp item, speedDown is not work
 	if currentSpeedState != SPEED.UP:
@@ -102,12 +107,12 @@ func _on_Timer_timeout():
 	currentSpeedState = SPEED.NORMAL
 	timerNode.stop()
 
+# Collectibles
 func getCollectibleItem():
 	gameManagerNode.addAssignmentCount()
+	
+	audio.playCollectible()
 
-# Goal
-func gameOver():
-	gameManagerNode.gameOver()
 
 func reduceHealth(var val):
 	health -= val
@@ -118,19 +123,37 @@ func _reduce_health():
 	if ms  == 5 || ms  == 0:
 		health -= 2
 		
-	
-
 # Healthbar as time goes
 func _on_ms_timeout(): 
-#	print(health)
 	ms += 1
 # End of scripts wrote by Lee Seoyoung
 
-func addTime(var val):
-	
+func addTime(var val):	
 	var temp = health + val
 	health = min(temp, 99)
-	print(health)
+	
+	audio.playAddTime()
+
+# Game over state
+func gameOver():
+	gameManagerNode.gameOver()
+
+# Goal
+func goal():
+	gameManagerNode.setGameOverState("You submitted it on time!")
+	gameOver()
+
+# Time over
+func timeOver():
+	gameManagerNode.setGameOverState("You are late.")
+	gameOver()
+
+# Hit by car
+func carAccident():
+	gameManagerNode.setGameOverState("YOU DIED")
+	playCarAccident()
+	
+	gameOver()
 
 func playCarAccident():
 	audio.playCarAnccident()

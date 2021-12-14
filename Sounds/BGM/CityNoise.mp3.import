@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/CityNoise.mp3-323d83824ebdab5fbdeb82468464763a.mp3str"
+
+[deps]
+
+source_file="res://Sounds/BGM/CityNoise.mp3"
+dest_files=[ "res://.import/CityNoise.mp3-323d83824ebdab5fbdeb82468464763a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

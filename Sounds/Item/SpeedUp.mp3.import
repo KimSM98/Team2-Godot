@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SpeedUp.mp3-65fe789edf8101e8fc4e3b26f53760cc.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Item/SpeedUp.mp3"
+dest_files=[ "res://.import/SpeedUp.mp3-65fe789edf8101e8fc4e3b26f53760cc.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

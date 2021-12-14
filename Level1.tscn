@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/Score.tres" type="DynamicFont" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Scenes/Enemy/Patroller.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Scenes/Sounds/GameBGM.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Fonts/GameOverStateFont.tres" type="DynamicFont" id=26]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 1, 0.407843, 0.407843, 1 )
@@ -52,6 +53,7 @@ script = ExtResource( 1 )
 collectibleCountLabelPath = NodePath("InGameUI/CollectibleCount")
 maxCollectibleCountLabelPath = NodePath("InGameUI/MaxCollectibleCount")
 gameOverUIPath = NodePath("GameOverUI")
+stateLabelPath = NodePath("GameOverUI/State")
 scoreLabelPath = NodePath("GameOverUI/Score")
 restartButtonPath = NodePath("GameOverUI/RestartButton")
 catItemUIPath = NodePath("InGameUI/CatItemUI")
@@ -306,37 +308,51 @@ __meta__ = {
 }
 
 [node name="GameOver" type="Label" parent="GameOverUI"]
-margin_left = -82.0
-margin_top = -63.0
-margin_right = 278.0
-margin_bottom = 17.0
+margin_left = -173.0
+margin_top = -112.0
+margin_right = 195.0
+margin_bottom = -32.0
+rect_scale = Vector2( 1.5, 1.5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
 custom_fonts/font = ExtResource( 4 )
 text = "GameOver!"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Score" type="Label" parent="GameOverUI"]
-margin_left = -11.0
-margin_top = 15.0
-margin_right = 202.0
-margin_bottom = 168.0
-custom_fonts/font = ExtResource( 2 )
-text = "SCORE
-A"
+[node name="State" type="Label" parent="GameOverUI"]
+margin_left = -447.0
+margin_top = 16.0
+margin_right = 629.0
+margin_bottom = 102.0
+custom_colors/font_color = Color( 0.894118, 0.211765, 0.0784314, 1 )
+custom_fonts/font = ExtResource( 26 )
+text = "STATE"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Score" type="Label" parent="GameOverUI"]
+margin_left = -31.0
+margin_top = 98.0
+margin_right = 228.0
+margin_bottom = 173.0
+custom_fonts/font = ExtResource( 2 )
+text = "SCORE:A"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="RestartButton" type="TextureButton" parent="GameOverUI"]
-margin_left = 8.0
-margin_top = 186.0
-margin_right = 24.0
-margin_bottom = 202.0
+margin_left = 9.0
+margin_top = 206.0
+margin_right = 25.0
+margin_bottom = 222.0
 rect_scale = Vector2( 5, 5 )
 texture_normal = ExtResource( 6 )
 __meta__ = {
@@ -344,10 +360,10 @@ __meta__ = {
 }
 
 [node name="MainButton" parent="GameOverUI" instance=ExtResource( 13 )]
-margin_left = 105.0
-margin_top = 186.0
-margin_right = 121.0
-margin_bottom = 202.0
+margin_left = 106.0
+margin_top = 206.0
+margin_right = 122.0
+margin_bottom = 222.0
 
 [node name="GameStartUI" type="Control" parent="."]
 visible = false

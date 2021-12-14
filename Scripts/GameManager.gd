@@ -6,12 +6,17 @@ export(NodePath) var collectibleCountLabelPath
 onready var collectibleCountLabel = get_node(collectibleCountLabelPath)
 export(NodePath) var maxCollectibleCountLabelPath
 onready var maxCollectibleCountLabel = get_node(maxCollectibleCountLabelPath)
+# Game Over UI
 export(NodePath) var gameOverUIPath
 onready var gameOverUI = get_node(gameOverUIPath)
+export(NodePath) var stateLabelPath
+onready var stateLabel = get_node(stateLabelPath)
 export(NodePath) var scoreLabelPath
 onready var scoreLabel = get_node(scoreLabelPath)
 export(NodePath) var restartButtonPath
 onready var restartButton = get_node(restartButtonPath)
+# End of Game Over UI
+
 export(NodePath) var gameStartUIPath
 onready var gameStartUI = get_node(gameStartUIPath)
 export(NodePath) var catItemUIPath
@@ -26,6 +31,8 @@ var collectibleMaxCount = 0
 var collectibleCount = 0
 
 var time
+
+var gameOverState = "NULL"
 
 func _ready():
 	gameOverUI.visible = false
@@ -44,9 +51,12 @@ func updateMaxCount():
 
 func updateCollectibleCount():
 	collectibleCountLabel.text = str(collectibleCount)
+	
+func updateStateLabel():
+	stateLabel.text = gameOverState
 
 func updateScoreLabel():
-	scoreLabel.text = "SCORE\n" + str(score)
+	scoreLabel.text = "SCORE:" + str(score)
 	
 func addAssignmentCount():
 	collectibleCount += 1
@@ -72,7 +82,9 @@ func getScore():
 #	scoreLabel.visible = true;
 	
 func gameOver():
+	updateStateLabel()	
 	getScore()
+	
 	gameOverUI.visible = true
 	get_tree().paused = true
 	
@@ -90,7 +102,9 @@ func initializeButton():
 	restartButton.connect("pressed", self, "restart")
 	
 func restart():
-	#get_tree().change_scene("res://Level1.tscn")
 	get_tree().reload_current_scene()
 	get_tree().paused = false
 	print("Restart")
+	
+func setGameOverState(var state):
+	gameOverState = state
