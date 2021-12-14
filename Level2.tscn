@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/Score.tres" type="DynamicFont" id=2]
@@ -29,6 +29,8 @@
 [ext_resource path="res://Scenes/UI/MainButton.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Scenes/Sounds/GameBGM.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Fonts/GameOverStateFont.tres" type="DynamicFont" id=29]
+[ext_resource path="res://Assets/Item/Clock.png" type="Texture" id=30]
+[ext_resource path="res://Scenes/UI/GameSystemButtons.tscn" type="PackedScene" id=31]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 641, 10 )
@@ -39,7 +41,7 @@ extents = Vector2( 642, 10 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 10, 359.5 )
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 1, 0.407843, 0.407843, 1 )
 border_width_left = 1
 border_width_top = 1
@@ -48,7 +50,7 @@ corner_radius_top_left = 3
 corner_radius_bottom_left = 3
 corner_detail = 10
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 1, 1, 1, 1 )
 border_width_left = 1
 border_width_top = 1
@@ -67,6 +69,7 @@ maxCollectibleCountLabelPath = NodePath("InGameUI/MaxCollectibleCount")
 gameOverUIPath = NodePath("GameOverUI2")
 stateLabelPath = NodePath("GameOverUI2/State")
 scoreLabelPath = NodePath("GameOverUI2/Score")
+restartButtonPath = NodePath("GameOverUI2/RestartButton")
 catItemUIPath = NodePath("InGameUI/CatItemUI")
 
 [node name="Background" parent="." instance=ExtResource( 13 )]
@@ -396,12 +399,12 @@ position = Vector2( 811, 689 )
 position = Vector2( 74, 673 )
 
 [node name="HealthBar" type="ProgressBar" parent="Player"]
-margin_left = -31.5
-margin_top = -22.5
-margin_right = 31.5
-margin_bottom = -16.5
-custom_styles/fg = SubResource( 2 )
-custom_styles/bg = SubResource( 3 )
+margin_left = -15.5
+margin_top = -15.0
+margin_right = 16.5
+margin_bottom = -9.0
+custom_styles/fg = SubResource( 7 )
+custom_styles/bg = SubResource( 8 )
 value = 98.0
 percent_visible = false
 __meta__ = {
@@ -411,6 +414,16 @@ __meta__ = {
 [node name="ms" type="Timer" parent="Player"]
 wait_time = 0.1
 autostart = true
+
+[node name="Clock" type="TextureRect" parent="Player"]
+margin_left = -20.5
+margin_top = -18.0
+margin_right = -2.5
+rect_scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="InGameUI" type="Control" parent="."]
 margin_left = 1043.0
@@ -470,6 +483,7 @@ __meta__ = {
 
 [node name="GameOverUI2" type="Control" parent="."]
 pause_mode = 2
+visible = false
 margin_left = 583.0
 margin_top = 283.0
 margin_right = 772.0
@@ -592,4 +606,4 @@ __meta__ = {
 
 [node name="GameBGM" parent="." instance=ExtResource( 28 )]
 
-[connection signal="timeout" from="Player/ms" to="Player" method="_on_ms_timeout"]
+[node name="Game system" parent="." instance=ExtResource( 31 )]

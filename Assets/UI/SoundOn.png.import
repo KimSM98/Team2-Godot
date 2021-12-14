@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/heart-solid.png-e3a40b89e90dc6174f755341c7aa1cc0.stex"
+path="res://.import/SoundOn.png-83d26c074dd791cc76d446cb94b34e2d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/heart-solid.png"
-dest_files=[ "res://.import/heart-solid.png-e3a40b89e90dc6174f755341c7aa1cc0.stex" ]
+source_file="res://Assets/UI/SoundOn.png"
+dest_files=[ "res://.import/SoundOn.png-83d26c074dd791cc76d446cb94b34e2d.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

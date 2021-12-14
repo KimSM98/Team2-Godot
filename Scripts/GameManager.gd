@@ -17,8 +17,6 @@ export(NodePath) var restartButtonPath
 onready var restartButton = get_node(restartButtonPath)
 # End of Game Over UI
 
-export(NodePath) var gameStartUIPath
-onready var gameStartUI = get_node(gameStartUIPath)
 export(NodePath) var catItemUIPath
 onready var catItemUI = get_node(catItemUIPath)
 
@@ -64,6 +62,10 @@ func addAssignmentCount():
 
 func getScore():
 	var val = collectibleCount * 100 / collectibleMaxCount
+	
+	if(gameOverState == "You are late."):
+		val -= 10
+	
 	if val == 100:
 		score = "A+"
 	elif val > 80:
@@ -86,10 +88,6 @@ func gameOver():
 	getScore()
 	
 	gameOverUI.visible = true
-	get_tree().paused = true
-	
-func gameStart():
-	gameStartUI.visible = true
 	get_tree().paused = true
 	
 func showCatItemUI():

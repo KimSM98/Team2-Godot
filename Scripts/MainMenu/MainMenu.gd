@@ -1,10 +1,10 @@
 extends Node
 
 
-export(NodePath) var level2_ButtonPath
-onready var level2_Button = get_node(level2_ButtonPath)
 export(NodePath) var level1_ButtonPath
 onready var level1_Button = get_node("UI/Level1")
+export(NodePath) var level2_ButtonPath
+onready var level2_Button = get_node(level2_ButtonPath)
 onready var ruleButton = get_node("UI/RuleButton")
 onready var ruleRect = get_node("UI/RuleRect")
 onready var creditButton = get_node("UI/Credit")

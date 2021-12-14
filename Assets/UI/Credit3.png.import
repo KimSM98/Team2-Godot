@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Win95TriBlack.png-78628216be7ec8d5c2006013d0f1fdc4.stex"
+path="res://.import/Credit3.png-95f0817da8a9298da618402dc7e1dae7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Win95TriBlack.png"
-dest_files=[ "res://.import/Win95TriBlack.png-78628216be7ec8d5c2006013d0f1fdc4.stex" ]
+source_file="res://Assets/UI/Credit3.png"
+dest_files=[ "res://.import/Credit3.png-95f0817da8a9298da618402dc7e1dae7.stex" ]
 
 [params]
 

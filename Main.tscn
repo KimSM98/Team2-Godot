@@ -1,17 +1,19 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/MainMenu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/UI/LevelButton_2.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Item/paper.png" type="Texture" id=3]
 [ext_resource path="res://Assets/UI/CreditButton.png" type="Texture" id=4]
-[ext_resource path="res://Assets/UI/Credit-export.png" type="Texture" id=5]
+[ext_resource path="res://Assets/UI/Credit3.png" type="Texture" id=5]
 [ext_resource path="res://Assets/UI/LevelButton_1.png" type="Texture" id=6]
 [ext_resource path="res://Sounds/BGM/BGM_Main.mp3" type="AudioStream" id=7]
 [ext_resource path="res://Assets/UI/game controls.png" type="Texture" id=8]
 [ext_resource path="res://Assets/UI/MainScreen.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/UI/MuteButton.tscn" type="PackedScene" id=10]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
+level1_ButtonPath = NodePath("UI/Level1")
 level2_ButtonPath = NodePath("UI/Level2")
 
 [node name="UI" type="Control" parent="."]
@@ -90,14 +92,20 @@ __meta__ = {
 
 [node name="CreditRect" type="TextureRect" parent="UI"]
 visible = false
-margin_left = 126.0
-margin_top = 50.0
-margin_right = 1126.0
-margin_bottom = 650.0
+margin_left = 181.0
+margin_top = 63.0
+margin_right = 1181.0
+margin_bottom = 663.0
 texture = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MuteButton" parent="UI" instance=ExtResource( 10 )]
+margin_left = 8.0
+margin_top = 3.0
+margin_right = 24.0
+margin_bottom = 19.0
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )

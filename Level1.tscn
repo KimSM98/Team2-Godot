@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/Score.tres" type="DynamicFont" id=2]
@@ -26,6 +26,10 @@
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Scenes/Sounds/GameBGM.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Fonts/GameOverStateFont.tres" type="DynamicFont" id=26]
+[ext_resource path="res://Assets/Item/Clock.png" type="Texture" id=27]
+[ext_resource path="res://Scenes/UI/GameSystemButtons.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Scenes/Items/AddingTime.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Animation Frames/Friends/Friend_YellowHat.tres" type="SpriteFrames" id=30]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 1, 0.407843, 0.407843, 1 )
@@ -135,16 +139,16 @@ position = Vector2( 1097, 196 )
 [node name="Collectibles" type="Node2D" parent="." groups=["COLLECTIBLES"]]
 
 [node name="Paper" parent="Collectibles" instance=ExtResource( 15 )]
-position = Vector2( 473, 265 )
+position = Vector2( 465, 70 )
 
 [node name="Paper2" parent="Collectibles" instance=ExtResource( 15 )]
-position = Vector2( 961, 226 )
+position = Vector2( 1248, 362 )
 
 [node name="Paper3" parent="Collectibles" instance=ExtResource( 15 )]
-position = Vector2( 730, 137 )
+position = Vector2( 811, 364 )
 
 [node name="Paper4" parent="Collectibles" instance=ExtResource( 15 )]
-position = Vector2( 55, 91 )
+position = Vector2( 468, 641 )
 
 [node name="Paper5" parent="Collectibles" instance=ExtResource( 15 )]
 position = Vector2( 92, 481 )
@@ -167,16 +171,22 @@ position = Vector2( 993, 671 )
 position = Vector2( 794, 32 )
 
 [node name="SpeedUpItem" parent="Items" instance=ExtResource( 14 )]
-position = Vector2( 817, 159 )
+position = Vector2( 708, 70 )
 
 [node name="SpeedUpItem3" parent="Items" instance=ExtResource( 14 )]
-position = Vector2( 105, 41 )
+position = Vector2( 178, 53 )
 
 [node name="SpeedUpItem4" parent="Items" instance=ExtResource( 14 )]
-position = Vector2( 431, 456 )
+position = Vector2( 422, 416 )
 
 [node name="SpeedUpItem2" parent="Items" instance=ExtResource( 14 )]
-position = Vector2( 766, 499 )
+position = Vector2( 774, 683 )
+
+[node name="TimerItem" parent="Items" instance=ExtResource( 29 )]
+position = Vector2( 519, 467 )
+
+[node name="TimerItem2" parent="Items" instance=ExtResource( 29 )]
+position = Vector2( 1141, 615 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -189,35 +199,60 @@ destinationPath = NodePath("../Patroller_Destination")
 speed = 3.0
 
 [node name="Patroller_Destination" parent="Enemies/Friend_3" instance=ExtResource( 19 )]
-position = Vector2( 85.5, 0 )
+position = Vector2( 63.5, -173 )
+
+[node name="Friend_6" parent="Enemies" instance=ExtResource( 20 )]
+position = Vector2( 279, 569 )
+spriteFrames = ExtResource( 30 )
+
+[node name="Patroller" parent="Enemies/Friend_6" instance=ExtResource( 23 )]
+destinationPath = NodePath("../Patroller_Destination")
+speed = 3.0
+
+[node name="Patroller_Destination" parent="Enemies/Friend_6" instance=ExtResource( 19 )]
+position = Vector2( 0, -204.5 )
+
+[node name="Friend_5" parent="Enemies" instance=ExtResource( 20 )]
+position = Vector2( 499, 23 )
+spriteFrames = ExtResource( 10 )
+
+[node name="Patroller" parent="Enemies/Friend_5" instance=ExtResource( 23 )]
+destinationPath = NodePath("../Patroller_Destination")
+speed = 3.0
+
+[node name="Patroller_Destination" parent="Enemies/Friend_5" instance=ExtResource( 19 )]
+position = Vector2( 0, 170 )
 
 [node name="Friend_4" parent="Enemies" instance=ExtResource( 20 )]
-position = Vector2( 930, 385 )
-spriteFrames = ExtResource( 10 )
+position = Vector2( 1244, 389 )
+spriteFrames = ExtResource( 9 )
 
 [node name="Patroller" parent="Enemies/Friend_4" instance=ExtResource( 23 )]
 destinationPath = NodePath("../Patroller_Destination")
 speed = 3.0
 
 [node name="Patroller_Destination" parent="Enemies/Friend_4" instance=ExtResource( 19 )]
-position = Vector2( 157.5, 152 )
+position = Vector2( -155.5, 0 )
 
 [node name="Cat3" parent="Enemies" instance=ExtResource( 22 )]
-position = Vector2( 140, 220 )
+position = Vector2( 144, 547 )
 
 [node name="Cat4" parent="Enemies" instance=ExtResource( 22 )]
-position = Vector2( 554, 102 )
+position = Vector2( 415, 324 )
+
+[node name="Cat5" parent="Enemies" instance=ExtResource( 22 )]
+position = Vector2( 770, 319 )
 
 [node name="Cat6" parent="Enemies" instance=ExtResource( 22 )]
-position = Vector2( 1164, 451 )
+position = Vector2( 1247, 538 )
 
 [node name="Player" parent="." instance=ExtResource( 24 )]
 position = Vector2( 74, 673 )
 
 [node name="HealthBar" type="ProgressBar" parent="Player"]
-margin_left = -31.0
+margin_left = -15.5
 margin_top = -15.0
-margin_right = 32.0
+margin_right = 16.5
 margin_bottom = -9.0
 custom_styles/fg = SubResource( 2 )
 custom_styles/bg = SubResource( 3 )
@@ -230,6 +265,16 @@ __meta__ = {
 [node name="ms" type="Timer" parent="Player"]
 wait_time = 0.1
 autostart = true
+
+[node name="Clock" type="TextureRect" parent="Player"]
+margin_left = -20.5
+margin_top = -18.0
+margin_right = -2.5
+rect_scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="InGameUI" type="Control" parent="."]
 margin_left = 1043.0
@@ -289,6 +334,7 @@ __meta__ = {
 
 [node name="GameOverUI" type="Control" parent="."]
 pause_mode = 2
+visible = false
 margin_left = 583.0
 margin_top = 283.0
 margin_right = 772.0
@@ -410,5 +456,7 @@ __meta__ = {
 }
 
 [node name="GameBGM" parent="." instance=ExtResource( 25 )]
+
+[node name="Game system" parent="." instance=ExtResource( 28 )]
 
 [connection signal="timeout" from="Player/ms" to="Player" method="_on_ms_timeout"]

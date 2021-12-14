@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Credit.png-789c3ee718814b125f89d6e7ea3ea28a.stex"
+path="res://.import/ResumeButton.png-5017f815c2520638cc65c7441c9d981a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Credit.png"
-dest_files=[ "res://.import/Credit.png-789c3ee718814b125f89d6e7ea3ea28a.stex" ]
+source_file="res://Assets/UI/ResumeButton.png"
+dest_files=[ "res://.import/ResumeButton.png-5017f815c2520638cc65c7441c9d981a.stex" ]
 
 [params]
 

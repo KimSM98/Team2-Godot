@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/UI/PauseButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/UI/MuteButton.tscn" type="PackedScene" id=2]
+
+[node name="Game system" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseButton" parent="." instance=ExtResource( 1 )]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 20.0
+margin_bottom = 20.0
+
+[node name="MuteButton" parent="." instance=ExtResource( 2 )]
+margin_left = 60.0
+margin_top = 6.0
+margin_right = 76.0
+margin_bottom = 22.0

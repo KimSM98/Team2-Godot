@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hourglass-end-solid.png-751402fe750b8768402fd4e9ca7e37e1.stex"
+path="res://.import/PauseButton.png-aca660e45b291bdab82ba2999e4bfbef.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/hourglass-end-solid.png"
-dest_files=[ "res://.import/hourglass-end-solid.png-751402fe750b8768402fd4e9ca7e37e1.stex" ]
+source_file="res://Assets/UI/PauseButton.png"
+dest_files=[ "res://.import/PauseButton.png-aca660e45b291bdab82ba2999e4bfbef.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
