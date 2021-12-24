@@ -229,7 +229,7 @@ position = Vector2( 794, 32 )
 position = Vector2( 817, 159 )
 
 [node name="SpeedUpItem3" parent="Items" instance=ExtResource( 14 )]
-position = Vector2( 105, 41 )
+position = Vector2( 121, 70 )
 
 [node name="SpeedUpItem4" parent="Items" instance=ExtResource( 14 )]
 position = Vector2( 431, 456 )
